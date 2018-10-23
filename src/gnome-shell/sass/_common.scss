@@ -49,7 +49,7 @@ $_hover_bg_color: lighten($bg_color,if($variant=='light', 5%, 3%));
 $_active_bg_color: if($variant == 'light', darken($bg_color, 14%), darken($bg_color, 9%));
 
 $font-size: 10;
-$font-family: Roboto, Cantarell, Sans-Serif;
+$font-family: Comic Sans MS, Roboto, Cantarell, Sans-Serif;
 
 stage {
   font-family: $font-family;
