@@ -568,7 +568,7 @@ StScrollBar {
 /* Popovers/Menus - Menu panel(settings..) */
 
 .popup-menu {
-  min-width: 15em;
+  min-width: 10em;
   color: $fg_color;
   border-color: $_bubble_borders_color;
 
@@ -578,12 +578,12 @@ StScrollBar {
     box-shadow: inset 0 -1px 0px lighten($borders_color,5%);
   }
 
-  .popup-menu-content { padding: 1em 0em; }
+  .popup-menu-content { padding: .3em 0em; }
   .popup-menu-item {
-    spacing: 12px;
+    spacing: 0px;
 
-    &:ltr { padding: .4em 1.75em .4em 0em; }
-    &:rtl { padding: .4em 0em .4em 1.75em; }
+    &:ltr { padding: .3em 1em .3em 0em; }
+    &:rtl { padding: .3em 0em .3em 1em; }
     &:checked {
       background-color: if($variant == 'light', darken($bg_color,10%), darken($bg_color,4%));
       box-shadow: inset 0 1px 0px lighten($borders_color,5%);
@@ -618,6 +618,7 @@ StScrollBar {
   .popup-menu-ornament {
     text-align: right;
     width: 1.2em;
+    height: 0px;
   }
   .popup-menu-boxpointer,
   .candidate-popup-boxpointer {
@@ -637,7 +638,7 @@ StScrollBar {
   .popup-separator-menu-item {
     //-margin-horizontal: 24px;
     height: 1px; //not really the whole box
-    margin: 6px 64px;
+    margin: 0px 24px;
     background-color: transparent;
     border-color: $_bubble_borders_color;
     border-bottom-width: 1px;
