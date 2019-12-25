@@ -27,7 +27,8 @@
   },
   "devDependencies": {
     "del": "^3.0.0",
-    "gulp": "^3.9.1",
+    "graceful-fs": "^4.2.3",
+    "gulp": "^4.0.2",
     "gulp-rename": "^1.2.3",
     "gulp-sass": "^4.0.1",
     "gulp-watch": "^5.0.1"
