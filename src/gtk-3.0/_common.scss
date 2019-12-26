@@ -3427,11 +3427,15 @@ scale {
 progressbar {
   // sizing
   &.horizontal {
+    trough { min-width: 150px; }
+
     trough,
     progress { min-height: 2px; }
   }
 
   &.vertical {
+    trough { min-height: 80px; }
+
     trough,
     progress { min-width: 2px; }
   }
@@ -3452,7 +3456,18 @@ progressbar {
   trough { @extend %scale_trough; }
 
   progress {
-    @extend %scale_highlight;
+    @extend %scale_highlight; /* share most of scales' */
+    /* override insensitive that is specific to progress */
+    &:disabled {
+      background-color: $insensitive_fg_color;
+      border-color: $insensitive_fg_color;
+    }
+
+    &:backdrop:disabled {
+      background-color: $backdrop_insensitive_color;
+      border-color: $backdrop_insensitive_color;
+    }
+
 
     border-radius: 1.5px;
 
