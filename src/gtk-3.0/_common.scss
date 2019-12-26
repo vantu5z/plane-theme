@@ -4003,7 +4003,7 @@ placessidebar {
 
   row {
     // Needs overriding of the GtkListBoxRow padding
-    min-height: 36px;
+    min-height: 30px;
     padding: 0px;
 
     // Using margins/padding directly in the SidebarRow
@@ -4072,9 +4072,7 @@ placessidebar {
       }
     }
   }
-
 }
-
 
 placesview {
   .server-list-button > image {
@@ -4089,10 +4087,8 @@ placesview {
 
   row.activatable:hover { background-color: transparent; }
 
-  // this selects the "connect to server" label
-  > actionbar > revealer > box > label {
-    padding-left: 8px;
-    padding-right: 8px;
+  > actionbar > revealer > box  > box{
+    border-spacing: 6px;
   }
 }
 
