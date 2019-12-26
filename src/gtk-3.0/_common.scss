@@ -3628,7 +3628,7 @@ printdialog {
 /**********
  * Frames *
  **********/
-frame > border,
+frame,
 .frame {
   box-shadow: none;
   margin: 0;
@@ -3680,17 +3680,6 @@ scrolledwindow {
     }
   }
 
-  // Overflow indication, works similarly to the overshoot, the size if fixed tho.
-  undershoot {
-    &.top { @include undershoot(top); }
-
-    &.bottom { @include undershoot(bottom); }
-
-    &.left { @include undershoot(left); }
-
-    &.right { @include undershoot(right); }
-  }
-
   junction { // the small square between two scrollbars
     border-color: transparent;
     // the border image is used to add the missing dot between the borders, details, details, details...
@@ -3709,7 +3698,7 @@ scrolledwindow {
 
 //vbox and hbox separators
 separator {
-  background: transparentize(black, 0.9);
+  background: lighten($borders_color, 5%);
   min-width: 1px;
   min-height: 1px;
 }
