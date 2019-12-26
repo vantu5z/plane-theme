@@ -2563,12 +2563,6 @@ scrollbar {
   $_slider_min_length: 40px;
   transition: 300ms $ease-out-quad;
 
-  // disable steppers
-  @at-root * {
-    -GtkScrollbar-has-backward-stepper: false;
-    -GtkScrollbar-has-forward-stepper: false;
-  }
-
   background-color: $scrollbar_bg_color;
   transition: 300ms $ease-out-quad;
 
@@ -2603,7 +2597,7 @@ scrollbar {
     &:disabled { background-color: transparent; }
   }
 
-  &.fine-tune {
+  & range.fine-tune {
     slider {
       min-width: 4px;
       min-height: 4px;
