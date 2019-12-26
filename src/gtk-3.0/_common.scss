@@ -3822,7 +3822,7 @@ calendar {
 
   &.button {
     @extend %undecorated_button;
-    
+
     color: transparentize($fg_color, 0.55);
 
     &:hover { color: $fg_color; }
@@ -3858,8 +3858,16 @@ messagedialog { // Message Dialog styling
     border-style: none;
     border-top-left-radius: $br-o;
     border-top-right-radius: $br-o;
-    box-shadow:none;
     box-shadow: inset 1px 1px lighten($bg_color, 4%),inset -1px 0px lighten($bg_color, 4%); // same -> headerbar_fill
+  }
+
+  box.dialog-vbox.vertical {
+    border-spacing: 10px;
+  }
+
+  & label.title {
+    font-weight: 800;
+    font-size: 15pt;
   }
 
   &.csd { // rounded bottom border styling for csd version
@@ -3902,6 +3910,10 @@ filechooser {
   #pathbarbox { border-bottom: 1px solid $bg_color; }
 
   @extend %treeviewcell;
+}
+
+filechooserbutton>button>box {
+  border-spacing: 6px;
 }
 
 filechooserbutton:drop(active) {
