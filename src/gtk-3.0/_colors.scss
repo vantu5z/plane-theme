@@ -76,10 +76,10 @@ $progress_border_color: $selected_borders_color;
 $checkradio_bg_color: $selected_bg_color;
 $checkradio_fg_color: $selected_fg_color;
 
-$switch_bg_color: #2AC558;
+$switch_bg_color: if($variant == 'light', #2AC558, darken(#2AC558, 10%));
 $switch_fg_color: #FFF;
 
-$check_bg_color: #2AC558;
+$check_bg_color: if($variant == 'light', #2AC558, darken(#2AC558, 10%));
 $check_fg_color: #FFF;
 
 $indeterminate_bg_color: #FFC03A;
