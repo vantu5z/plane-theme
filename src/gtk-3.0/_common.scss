@@ -2973,11 +2973,11 @@ radio {
   border-radius: 100%;
   -gtk-icon-size: 14px;
 
-  &:checked { -gtk-icon-source: image(-gtk-recolor(url("assets/bullet-symbolic.svg")),
-                                      -gtk-recolor(url("assets/bullet-symbolic.symbolic.png"))); }
+  &:checked { -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/bullet-symbolic.symbolic.png")),
+                                            -gtk-recolor(url("assets/bullet@2-symbolic.symbolic.png"))); }
 
-  &:indeterminate { -gtk-icon-source: image(-gtk-recolor(url("assets/dash-symbolic.svg")),
-                                            -gtk-recolor(url("assets/dash-symbolic.symbolic.png"))); }
+  &:indeterminate { -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/dash-symbolic.symbolic.png")),
+                                                  -gtk-recolor(url("assets/dash@2-symbolic.symbolic.png"))); }
 }
 
 // ANIMATION:
@@ -3036,9 +3036,7 @@ treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a work
   border-radius: $br-e;
   background-color: $borders_color;
 
-  &:disabled { 
-    background-color: mix($bg_color, $borders_color, 50%); 
-  }
+  &:disabled { background-color: mix($bg_color, $borders_color, 50%); }
 
   &:backdrop {
     background-color: $backdrop_borders_color;
@@ -3120,6 +3118,8 @@ scale {
     min-width: 18px;
     margin: -8px;
   }
+
+  &:focus { outline: none; }
 
   // click-and-hold the slider to activate
   &.fine-tune {
@@ -3232,48 +3232,52 @@ scale {
 
   value { color: gtkalpha(currentColor, 0.55); }
 
-  marks {
-    color: gtkalpha(currentColor, 0.55);
-
-    @each $marks_class, $marks_pos, $marks_margin in (top, top, bottom),
-                                                     (bottom, bottom, top),
-                                                     (top, left, right),
-                                                     (bottom, right, left) {
-      &.#{$marks_class} {
-        margin-#{$marks_margin}: $_marks_distance;
-        margin-#{$marks_pos}: -($_marks_distance + $_marks_length);
-      }
-    }
-  }
-
-  &.fine-tune marks {
-    @each $marks_class, $marks_pos, $marks_margin in (top, top, bottom),
-                                                     (bottom, bottom, top),
-                                                     (top, left, right),
-                                                     (bottom, right, left) {
-      &.#{$marks_class} {
-        margin-#{$marks_margin}: $_marks_distance;
-        margin-#{$marks_pos}: -($_marks_distance + $_marks_length - 3px);
-      }
-    }
-  }
-
   &.horizontal {
-    indicator {
-      min-height: $_marks_length;
-      min-width: 1px;
+    >marks {
+      color: gtkalpha(currentColor, 0.55);
+      &.top    { margin-bottom: $_marks_distance; }
+      &.bottom { margin-top: $_marks_distance; }
+
+      indicator {
+        background-color: currentColor;
+        min-height: $_marks_length;
+        min-width: 1px;
+      }
     }
 
-    &.fine-tune indicator { min-height: ($_marks_length - 3px); }
+    > value.left  { margin-right: 9px; }
+    > value.right { margin-left: 9px; }
+
+    &.fine-tune >marks {
+      &.top { margin-top: 3px; }
+      &.bottom { margin-bottom: 3px; }
+
+      indicator { min-height: ($_marks_length - 3px); }
+    }
   }
 
   &.vertical {
-    indicator {
-      min-height: 1px;
-      min-width: $_marks_length;
+    >marks {
+      color: gtkalpha(currentColor, 0.55);
+      &.top    { margin-right: $_marks_distance; }
+      &.bottom { margin-left: $_marks_distance; }
+
+      indicator {
+        background-color: currentColor;
+        min-height: 1px;
+        min-width: $_marks_length;
+      }
     }
 
-    &.fine-tune indicator { min-width: ($_marks_length - 3px); }
+    > value.top    { margin-bottom: 9px; }
+    > value.bottom { margin-top: 9px; }
+
+    &.fine-tune >marks {
+      &.top { margin-left: 3px; }
+      &.bottom { margin-right: 3px; }
+
+      indicator { min-height: ($_marks_length - 3px); }
+    }
   }
 
   // *WARNING* scale with marks madness following
@@ -3333,10 +3337,9 @@ scale {
           }
 
           &.fine-tune slider {
-            // bigger negative margins to make the trough grow here as well
-             margin: -8px -4px;
-
             @if $dir_class == 'horizontal' {
+              // bigger negative margins to make the trough grow here as well
+              margin: -8px -4px;
             }
 
             @else {
