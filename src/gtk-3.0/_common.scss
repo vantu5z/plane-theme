@@ -4613,13 +4613,9 @@ button.titlebutton {
     -gtk-icon-source: none;
   }
 
-  $green_color: if($variant == 'light', #FFBD00, #FFBD00);
-  $blue_color: if($variant == 'light', #00D67D, #00D67D);
-  $purple_color: if($variant == 'light', #FF267C, #FF267C);
-
-  &.minimize{ background: $green_color; }
-  &.maximize{ background: $blue_color; }
-  &.close{ background: $purple_color; }
+  &.minimize{ background: $minimize_btn_color; }
+  &.maximize{ background: $maximize_btn_color; }
+  &.close{ background: $close_btn_color; }
   
   &:active,
   &:hover{
@@ -4632,13 +4628,13 @@ button.titlebutton {
   }
 
   &.minimize:active,
-  &.minimize:hover{ background: $green_color;}
+  &.minimize:hover{ background: lighten($minimize_btn_color, 10%);}
 
   &.maximize:active,
-  &.maximize:hover{ background: $blue_color; }
+  &.maximize:hover{ background: lighten($maximize_btn_color, 10%); }
 
   &.close:active,
-  &.close:hover{background:  $purple_color; }
+  &.close:hover{background: lighten($close_btn_color, 10%); }
 
   &:backdrop,
   &:backdrop:disabled {

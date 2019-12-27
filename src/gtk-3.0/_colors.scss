@@ -87,3 +87,8 @@ $indeterminate_fg_color: #FFF;
 
 $scale_color_a: mix($selected_bg_color, #023EFE, 40%);
 $scale_color_b: mix($selected_bg_color, #00FAFF, 40%);
+
+// window buttons colors (minimize, maximize, close)
+$minimize_btn_color: if($variant == 'light', #FFBD00, #FFBD00);
+$maximize_btn_color: if($variant == 'light', #00D67D, #00D67D);
+$close_btn_color: if($variant == 'light', #FF267C, #FF267C);
