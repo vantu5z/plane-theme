@@ -4849,24 +4849,119 @@ popover.emoji-picker .emoji {
   }
 }
 
-popover.emoji-completion arrow {
-  border: none;
-  background: none;
-}
-
 popover.emoji-completion contents row box {
+  border-spacing: 10px;
   padding: 2px 10px;
 }
 
 popover.emoji-completion .emoji:hover {
-  background: $popover_hover_color;
+  background-color: $popover_hover_color;
+}
+
+popover.entry-completion contents {
+  padding: 0;
+}
+
+// initial styling for popover menu and bar
+menubar {
+  padding: 0px;
+  box-shadow: inset 0 -1px transparentize(black, 0.9);
+
+  &:backdrop { background-color: $backdrop_bg_color; }
+
+  > item {
+    min-height: 16px;
+    padding: 4px 8px;
+
+    &:selected { //Seems like it :hover even with keyboard focus
+      box-shadow: inset 0 -3px $selected_bg_color;
+      color: $link_color;
+    }
+
+    &:disabled {
+      color: $insensitive_fg_color;
+      box-shadow: none;
+    }
+  }
+  // remove padding and rounding from menubar submenu decoration
+  .csd.popup decoration { border-radius:0; }
+}
+
+popover.menu {
+  padding: 0px;
+
+  & button.image-button.model {
+    padding: 0;
+    border: none;
+    background: none;
+    box-shadow: none;
+  }
+  & button.image-button.model:selected {
+    border: none;
+    color: $selected_fg_color;
+    background: $selected_bg_color;
+  }
+
+  & box.inline-buttons {
+    border-radius: 5px;
+    border-style: none;
+    border-width: 0;
+    border-image-source: none;
+    border-image-width: 1px;
+  }
+
+  & box.circular-buttons {
+    padding-bottom: 5px;
+  }
+
+  & > arrow,
+  &.background > contents {
+    background-color: $menu_color;
+  }
+
+  &.background separator {
+    margin: 5px 0px;
+  }
+
+  & accelerator {
+    margin-left: 20px;
+    color: gray;
+  }
+
+  & box.inline-buttons {
+    padding: 0 5px;
+  }
+
+  & radio.left,
+  & check.left {
+    margin-left: 0;
+    margin-right: 12px;
+  }
+
+  & radio.right,
+  & check.right {
+    margin-left: 12px;
+    margin-right: 0;
+  }
+
+  & modelbutton:selected {
+    color: $selected_fg_color;
+    background-color: $selected_bg_color;
+  }
+
+  & modelbutton:selected accelerator {
+    color: mix($selected_fg_color, gray, 50%);
+  }
+}
+
+statusbar {
+  padding: 6px 10px 6px 10px;
 }
 
 
-
-//
+//==========
 // Nautilus
-//
+//==========
 .nautilus-desktop.nautilus-canvas-item {
   color: white;
   text-shadow: 1px 1px transparentize(black, 0.4);
@@ -4882,7 +4977,7 @@ popover.emoji-completion .emoji:hover {
   headerbar {
 
     background-color:transparentize($bg_color,0.04);
-      
+
     // Normal
     .path-bar-box{
       margin-top: 1px;
@@ -4901,31 +4996,31 @@ popover.emoji-completion .emoji:hover {
       }
     }
     // Big
-    .path-bar-box.width-maximized{
+    .path-bar-box.width-maximized {
       background: $base_color;
       border-radius: $br-e;
       margin-right: 1px;
       border-color: $borders_color;
       box-shadow: 0px 0px 2px 0px rgba(255,255,255,0.1);
 
-      button{
+      button {
         border-top-width: 0;
         border-bottom-width: 0;
         
-        &:first-child{  
+        &:first-child {  
           border-left-width: 0;
         }
       }
     }
 
-    button.flat{
+    button.flat {
       
       border-radius:0px;
       
       &:hover,
       &:checked:hover { background: none; border-color: transparent; box-shadow: 0 2px mix($fg_color , $borders_color, 30%);}
       
-      &:checked { border:none; box-shadow:none; background: transparent;}
+      &:checked { border:none; box-shadow:none; background: transparent; }
     }
   }
   // Workaround for https://bugzilla.gnome.org/show_bug.cgi?id=724096
@@ -4934,7 +5029,7 @@ popover.emoji-completion .emoji:hover {
   // Transparentize
   background-color: transparent;
 
-  notebook{ background-color: $base_color;}
+  notebook{ background-color: $base_color; }
 
   .sidebar{ background-color:  transparentize($bg_color,0.04);}
 
@@ -4943,17 +5038,15 @@ popover.emoji-completion .emoji:hover {
       background-image: image(if($variant == 'light', darken($bg_color,10%), darken($bg_color,4%))); 
     }
   }
-  
-  @extend %treeviewcell;
 
+  @extend %treeviewcell;
 }
 
 
-//
+//==============
 // Transmission
-//
+//==============
 .tr-workarea undershoot,
 .tr-workarea overshoot {
   border-color: transparent; // Remove black border on over- and undershoot
 }
-
