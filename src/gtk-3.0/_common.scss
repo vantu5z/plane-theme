@@ -4465,7 +4465,7 @@ colorchooser .popover.osd { border-radius: $br-e; }
 .content-view {
   background-color: darken($bg_color,7%);
 
-  &:hover { -gtk-icon-effect: highlight; }
+  &:hover { -gtk-icon-filter: brightness(1.2); }
 
   &:backdrop { background-color: darken($bg_color,7%); }
 
