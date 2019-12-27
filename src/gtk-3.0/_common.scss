@@ -4692,6 +4692,12 @@ cursor-handle {
   background-image: none;
   box-shadow: none;
   border-style: none;
+  min-width: 20px;
+  min-height: 24px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 24px;
+  padding-bottom: 24px;
 
   @each $s,$as in ('',''),
                   (':hover','-hover'),
@@ -4700,14 +4706,12 @@ cursor-handle {
       $_url: 'assets/text-select-start#{$as}#{$asset_suffix}';
       -gtk-icon-source: -gtk-scaled(url('#{$_url}.png'),
                                     url('#{$_url}@2.png'));
-      padding-left: 10px;
     }
 
     &.bottom#{$s}:dir(ltr), &.top#{$s}:dir(rtl) {
       $_url: 'assets/text-select-end#{$as}#{$asset_suffix}';
       -gtk-icon-source: -gtk-scaled(url('#{$_url}.png'),
                                     url('#{$_url}@2.png'));
-      padding-right: 10px;
     }
 
     &.insertion-cursor#{$s}:dir(ltr), &.insertion-cursor#{$s}:dir(rtl) {
@@ -4720,8 +4724,21 @@ cursor-handle {
 
 .context-menu { font: initial; } // Decouple the font of context menus from their entry/textview
 
+shortcuts-section {
+  margin: 20px;
+}
+
+.shortcuts-search-results {
+  margin: 20px;
+  border-spacing: 24px;
+}
+
 // shortcut window keys
-.keycap {
+shortcut {
+  border-spacing: 6px;
+}
+
+shortcut > .keycap {
   min-width: 20px;
   min-height: 25px;
   margin-top: 2px;
@@ -4751,13 +4768,18 @@ cursor-handle {
   caret-color: $drop_target_color;
 }
 
-stackswitcher button.text-button { min-width: 100px; } // FIXME aggregate with buttons
+stackswitcher > button.text-button { min-width: 100px; } // FIXME aggregate with buttons
 
-stackswitcher button.circular,
-stackswitcher button.text-button.circular { // FIXME aggregate with buttons
-  min-width: 32px;
-  min-height: 32px;
-  padding: 0;
+stackswitcher.circular {
+  border-spacing: 12px;
+
+  // FIXME aggregate with buttons
+  > button.circular,
+  > button.text-button.circular {
+    min-width: 32px;
+    min-height: 32px;
+    padding: 0;
+  }
 }
 
 
