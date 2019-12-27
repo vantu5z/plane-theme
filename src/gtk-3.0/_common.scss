@@ -4321,7 +4321,7 @@ colorswatch {
   &:drop(active), & { border-style: none; } // FIXME: implement a proper drop(active) state
 
   $_colorswatch_radius: $br-e;
-  
+
   // base color corners rounding
   // to avoid the artifacts caused by rounded corner anti-aliasing the base color
   // sports a bigger radius.
@@ -4424,7 +4424,7 @@ colorswatch {
   }
 
   &#add-color-button {
-    border-radius: $_colorswatch_radius $_colorswatch_radius 0 0;
+    border-radius: $_colorswatch_radius 0 0 $_colorswatch_radius;
 
     &:only-child { border-radius: $_colorswatch_radius; }
 
