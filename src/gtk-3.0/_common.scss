@@ -5018,11 +5018,20 @@ statusbar {
       border-radius:0px;
       
       &:hover,
-      &:checked:hover { background: none; border-color: transparent; box-shadow: 0 2px mix($fg_color , $borders_color, 30%);}
+      &:checked:hover {
+        background: none;
+        border-color: transparent;
+        box-shadow: 0 2px mix($fg_color , $borders_color, 30%);
+      }
       
-      &:checked { border:none; box-shadow:none; background: transparent; }
+      &:checked {
+        border:none;
+        box-shadow:none;
+        background: transparent;
+      }
     }
   }
+
   // Workaround for https://bugzilla.gnome.org/show_bug.cgi?id=724096
   .searchbar-container { margin-top: -1px; }
 
@@ -5035,7 +5044,8 @@ statusbar {
 
   paned {
   > separator {
-      background-image: image(if($variant == 'light', darken($bg_color,10%), darken($bg_color,4%))); 
+      background-image: image(if($variant == 'light', darken($bg_color,10%),
+                                                      darken($bg_color,4%)));
     }
   }
 
