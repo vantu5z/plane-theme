@@ -5056,3 +5056,22 @@ statusbar {
 .tr-workarea overshoot {
   border-color: transparent; // Remove black border on over- and undershoot
 }
+
+
+//============
+// Lightdm
+//============
+
+// top part of login window
+#content_frame {
+  border-bottom-width: 0;
+}
+
+// bottom part of login window
+#buttonbox_frame {
+  border-top-width: 0;
+}
+
+#user_image_border {
+  border: 0;
+}
