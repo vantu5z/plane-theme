@@ -69,7 +69,8 @@ image.drag-icon {
    Everytime a wildcard is used a kitten dies, painfully.
 */
 
-*:disabled { -gtk-icon-filter: opacity(0.5); }
+//*:disabled { -gtk-icon-filter: opacity(0.5); }
+*:disabled { -gtk-icon-effect: dim; }
 
 .gtkstyle-fallback {
   color: $fg_color;
@@ -591,7 +592,8 @@ button {
 
     &:hover {
       @include button(hover);
-      -gtk-icon-filter: brightness(1.2);
+      //-gtk-icon-filter: brightness(1.2);
+      -gtk-icon-effect: highlight;
     }
 
     &:active,
@@ -606,7 +608,8 @@ button {
         @include button(backdrop);
 
         transition: $backdrop_transition;
-        -gtk-icon-filter: none;
+        //-gtk-icon-filter: none;
+        -gtk-icon-effect: none;
 
         &:active,
         &:checked { @include button(backdrop-active); background: none;}
@@ -1572,7 +1575,8 @@ headerbar {
         &.flat, & {
           @include button(backdrop, $selected_bg_color, $selected_fg_color);
 
-          -gtk-icon-filter: none;
+          //-gtk-icon-filter: none;
+          -gtk-icon-effect: none;
           border-color: $selected_borders_color;
 
           &:active,
@@ -4467,7 +4471,8 @@ colorchooser .popover.osd { border-radius: $br-e; }
 .content-view {
   background-color: darken($bg_color,7%);
 
-  &:hover { -gtk-icon-filter: brightness(1.2); }
+  //&:hover { -gtk-icon-filter: brightness(1.2); }
+  &:hover { -gtk-icon-effect: highlight; }
 
   &:backdrop { background-color: darken($bg_color,7%); }
 
