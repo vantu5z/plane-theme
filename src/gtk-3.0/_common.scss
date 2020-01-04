@@ -11,6 +11,7 @@ $button_transition: all 80ms $ease-out-quad;
   padding: 0;
 
   -gtk-secondary-caret-color: $selected_bg_color
+/*
 }
 
 button:focus(visible),
@@ -21,6 +22,7 @@ scale:focus(visible),
 label:focus(visible),
 row:focus(visible),
 flowboxchild:focus(visible) {
+*/
   // We use the outline properties to signal the focus properties
   // to the adwaita engine: using real CSS properties is faster,
   // and we don't use any outlines for now.
