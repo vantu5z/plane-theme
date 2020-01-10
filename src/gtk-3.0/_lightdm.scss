@@ -1,0 +1,68 @@
+//============
+// Lightdm
+//============
+$lightdm_bg_color: transparentize($bg_color, 0.5);
+$lightdm_entry_color: transparentize($bg_color, 0.5);
+$lightdm_error_color: transparentize($error_color, 0.2);
+
+// top panel
+#panel_window {
+  background-color: $lightdm_bg_color;
+}
+
+#login_window {
+  background-color: transparent;
+}
+
+#shutdown_dialog, #restart_dialog {
+  background-color: $lightdm_bg_color;
+}
+
+// top part of login window
+#content_frame {
+  border-width: 0;
+}
+
+// bottom part of login window
+#buttonbox_frame {
+  border-width: 0;
+}
+
+#user_image_border {
+  border: 0;
+}
+
+#prompt_entry {
+  background-color: $lightdm_entry_color;
+}
+
+// combobox
+#user_combobox {
+    background-color: $lightdm_entry_color;
+    background-image: none;
+}
+
+#user_combobox button {
+    background-color: transparent;
+    background-image: none;
+}
+
+#login_button,
+#login_window .button,
+#cancel_button,
+#shutdown_button,
+#restart_button {
+    background-color: $lightdm_entry_color;
+    background-image: none;
+}
+
+/* the warning, in case a wrong password is entered or something else goes wrong according to PAM */
+#greeter_infobar {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  background-color: $lightdm_error_color;
+}
+
+#greeter_infobar * {
+  border: 0;
+}
