@@ -630,7 +630,7 @@ StScrollBar {
     -arrow-rise: 0;
     -arrow-box-shadow: none;
     margin: 0px 4px;
-    background-color: transparentize($bg_color, 0.1);
+    background-color: transparentize($bg_color, 0.05);
     border-radius: 6px;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.4) !important;
   }
