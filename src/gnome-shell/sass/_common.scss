@@ -698,14 +698,14 @@ StScrollBar {
   -arrow-box-shadow: 0 1px 3px black; //dreaming. bug #689995
 }
 
+
 .popup-separator-menu-item {
-  //-margin-horizontal: 24px;
   height: 1px; //not really the whole box
   margin: 0px 24px;
   background-color: transparent;
   border-color: $_bubble_borders_color;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
+  border-top-width: 1px;
+  border-top-style: solid;
 }
 
 // Rename popup
