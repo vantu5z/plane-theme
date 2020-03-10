@@ -13,6 +13,8 @@ $window_radius_bottom: 4px;
 $popover_radius: $button_radius + 1; // original value: 4
 $tab_check_width: 2px;
 
+$br-c: 7px; // better antialiasing (default:9px)
+
 // Optional compact sizes for buttons, headerbar and headerbar widgets
 $_sizevariant: 'compact'; //compact otherwise // original value: default
 $_headerbar_height: if($_sizevariant=='default', 46px, 32px); // original value: 46px, 40px;
@@ -2460,6 +2462,7 @@ notebook {
                         0 $tab_check_width 0px transparentize($selected_bg_color,0.9),
                         0 ($tab_check_width + 2px) 0px transparentize($selected_bg_color,0.94);
           }
+          border-top-right-radius: $br-c;
         }
       }
     }
@@ -2480,6 +2483,7 @@ notebook {
                         0 (-$tab_check_width) 0px transparentize($selected_bg_color,0.9),
                         0 (-$tab_check_width - 2px) 0px transparentize($selected_bg_color,0.94);
           }
+          border-bottom-right-radius: $br-c;
         }
       }
     }
@@ -2500,6 +2504,7 @@ notebook {
                         $tab_check_width 0 0px transparentize($selected_bg_color,0.9),
                         ($tab_check_width + 2px) 0 0px transparentize($selected_bg_color,0.94);
           }
+          border-bottom-left-radius: $br-c;
         }
       }
     }
@@ -2520,7 +2525,26 @@ notebook {
                         (-$tab_check_width) 0 0px transparentize($selected_bg_color,0.9),
                         (-$tab_check_width - 2px) 0 0px transparentize($selected_bg_color,0.94);
           }
+          border-bottom-right-radius: $br-c;
         }
+      }
+    }
+
+    // add vertical tabs separators
+    &.top, &.bottom {
+      > tabs > tab {
+        border-right-style: solid;
+        border-right-width: 1px;
+        border-color: transparentize($borders_color, 0.4);
+      }
+    }
+
+    // add horizontal tabs separators
+    &.left, &.right {
+      > tabs > tab {
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-color: transparentize($borders_color, 0.5);
       }
     }
 
