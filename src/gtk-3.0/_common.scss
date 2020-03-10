@@ -5116,7 +5116,7 @@ popover.emoji-completion .emoji:hover {
       background-image: image(if($variant == 'light', darken($bg_color,10%), darken($bg_color,4%))); 
     }
   }
-  
+
   @extend %treeviewcell;
 
 }
