@@ -623,7 +623,7 @@ StScrollBar {
 /* Popovers/Menus */
 
 .popup-menu {
-  min-width: 15em;
+  min-width: 10em;
   color: $fg_color;
   border-color: $_bubble_borders_color;
 
@@ -635,16 +635,16 @@ StScrollBar {
   }
 
   .popup-menu-content {
-    padding: 1em 0em;
+    padding: .3em 0em;
   }
   .popup-menu-item {
-    spacing: 12px;
+    spacing: 0px;
 
     &:ltr {
-      padding: 0.4em 1.75em 0.4em 0em;
+      padding: .3em 1em .3em 0em;
     }
     &:rtl {
-      padding: 0.4em 0em 0.4em 1.75em;
+      padding: .3em 0em .3em 1em;
     }
     &:checked {
       background-color: $bg_color;
@@ -701,7 +701,7 @@ StScrollBar {
 .popup-separator-menu-item {
   //-margin-horizontal: 24px;
   height: 1px; //not really the whole box
-  margin: 6px 64px;
+  margin: 0px 24px;
   background-color: transparent;
   border-color: $_bubble_borders_color;
   border-bottom-width: 1px;
