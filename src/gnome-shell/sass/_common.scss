@@ -18,7 +18,7 @@ $panel-corner-radius: $button_radius + 1;
 
 $_trough_color: transparentize($fg_color, 0.9);
 $_bubble_borders_color: lighten($borders_color, if($variant== "light", 0%, 5%));
-$_hover_bg_color: lighten($bg_color, if($variant== "light", 5%, 3%));
+$_hover_bg_color: lighten($bg_color, if($variant== "light", 5%, 5%));
 $_active_bg_color: if(
   $variant == "light",
   darken($bg_color, 14%),
@@ -1083,6 +1083,7 @@ StScrollBar {
 
 .calendar {
   margin-bottom: 1em;
+  background-color: $bg_color;
 }
 
 .calendar,
@@ -1132,6 +1133,7 @@ StScrollBar {
 .world-clocks-button,
 .weather-button,
 .events-section-title {
+  background-color: $bg_color;
   &:hover,
   &:focus {
     background-color: $_hover_bg_color;
