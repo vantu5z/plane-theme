@@ -701,11 +701,21 @@ StScrollBar {
 
 .popup-separator-menu-item {
   height: 1px; //not really the whole box
+  margin: 0px;
+  padding: 0px;
   margin: 0px 24px;
-  background-color: transparent;
-  border-color: $_bubble_borders_color;
-  border-top-width: 1px;
-  border-top-style: solid;
+  background-gradient-start: lighten($bg_color, 2%);
+  background-gradient-end: darken($bg_color, 1%);
+  background-gradient-direction: vertical;
+  border-radius: 5px;
+  border-width: 0px;
+}
+
+.popup-separator-menu-item-separator {
+  // remove separator line
+  height: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 // Rename popup
